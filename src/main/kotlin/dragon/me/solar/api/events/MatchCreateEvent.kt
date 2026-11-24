@@ -1,0 +1,16 @@
+package dragon.me.solar.api.events
+
+import dragon.me.solar.api.match.Match
+import org.bukkit.event.HandlerList
+
+/** Fired when a new match is accepted for startup, before arena preparation begins. */
+class MatchCreateEvent(match: Match) : MatchEvent(match) {
+    override fun getHandlers(): HandlerList = handlers
+
+    companion object {
+        private val handlers = HandlerList()
+
+        @JvmStatic
+        fun getHandlerList(): HandlerList = handlers
+    }
+}

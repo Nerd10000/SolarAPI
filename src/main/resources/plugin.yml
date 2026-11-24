@@ -1,0 +1,5 @@
+name: SolarAPI
+version: '1.0.0'
+main: dragon.me.solarAPI.SolarAPI
+api-version: '1.21'
+authors: [DragonDevelopsStuff]
