@@ -5,12 +5,12 @@ import org.bukkit.event.HandlerList
 
 /** Fired when a new match is accepted for startup, before arena preparation begins. */
 class MatchCreateEvent(match: Match) : MatchEvent(match) {
-    override fun getHandlers(): HandlerList = handlers
+    override fun getHandlers(): HandlerList = HANDLERS
 
     companion object {
-        private val handlers = HandlerList()
+        private val HANDLERS = HandlerList()
 
         @JvmStatic
-        fun getHandlerList(): HandlerList = handlers
+        fun getHandlerList(): HandlerList = HANDLERS
     }
 }

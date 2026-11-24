@@ -15,12 +15,12 @@ class QueueJoinEvent(val queue: Queue, val playerId: UUID) : org.bukkit.event.Ev
         cancelled = cancel
     }
 
-    override fun getHandlers(): HandlerList = handlers
+    override fun getHandlers(): HandlerList = HANDLERS
 
     companion object {
-        private val handlers = HandlerList()
+        private val HANDLERS = HandlerList()
 
         @JvmStatic
-        fun getHandlerList(): HandlerList = handlers
+        fun getHandlerList(): HandlerList = HANDLERS
     }
 }

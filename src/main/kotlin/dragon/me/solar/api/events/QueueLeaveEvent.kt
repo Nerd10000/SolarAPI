@@ -7,12 +7,12 @@ import java.util.UUID
 
 /** Fired after a player has been removed from a queue. */
 class QueueLeaveEvent(val queue: Queue, val playerId: UUID) : Event(false) {
-    override fun getHandlers(): HandlerList = handlers
+    override fun getHandlers(): HandlerList = HANDLERS
 
     companion object {
-        private val handlers = HandlerList()
+        private val HANDLERS = HandlerList()
 
         @JvmStatic
-        fun getHandlerList(): HandlerList = handlers
+        fun getHandlerList(): HandlerList = HANDLERS
     }
 }

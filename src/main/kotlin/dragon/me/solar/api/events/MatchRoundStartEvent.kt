@@ -4,12 +4,12 @@ import dragon.me.solar.api.match.Match
 import org.bukkit.event.HandlerList
 
 class MatchRoundStartEvent(match: Match) : MatchEvent(match) {
-    override fun getHandlers(): HandlerList = handlers
+    override fun getHandlers(): HandlerList = HANDLERS
 
     companion object {
-        private val handlers = HandlerList()
+        private val HANDLERS = HandlerList()
 
         @JvmStatic
-        fun getHandlerList(): HandlerList = handlers
+        fun getHandlerList(): HandlerList = HANDLERS
     }
 }
