@@ -1,13 +1,39 @@
 # Solar Public API
+![Static Badge](https://img.shields.io/badge/Discord-here-world?style=flat-square&link=https%3A%2F%2Fdiscord.gg%2FaEjRCvCGue)
+[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 
 `solar-api` contains Solar's public contracts and stable value types. It is a separate
 Gradle module; Solar's Paper implementation adapts its existing managers and services
 to these contracts. Addons should depend on this artifact, not Solar's implementation
 classes.
 
+### GitHub authentication
+
+Solar API is hosted on GitHub Packages. You need a GitHub Personal Access Token (classic)
+with the `read:packages` permission to download it.
+
+Create one here: https://github.com/settings/tokens
+
+Add your credentials to your Gradle user-level `gradle.properties` file:
+
+- Windows: `%USERPROFILE%\.gradle\gradle.properties`
+- Linux/macOS: `~/.gradle/gradle.properties`
+
+```properties
+gpr.user=YOUR_GITHUB_USERNAME
+gpr.key=YOUR_GITHUB_TOKEN
+```
+
 ```kotlin
 repositories {
-    mavenLocal() // or the repository where your server publishes Solar API artifacts
+    maven {
+        url = uri("https://maven.pkg.github.com/Nerd10000/SolarAPI")
+
+        credentials {
+            username = providers.gradleProperty("gpr.user").orNull // You need to set these in <USER_DIR>/.gradle/gradle.properties
+            password = providers.gradleProperty("gpr.key").orNull // You need to set these in <USER_DIR>/.gradle/gradle.properties
+        }
+    } 
 }
 
 dependencies {

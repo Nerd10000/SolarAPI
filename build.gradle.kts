@@ -49,45 +49,18 @@ publishing {
             groupId = "dragon.me"
             artifactId = "solar-api"
             version = project.version.toString()
-
-            pom {
-                name.set("Solar API")
-                description.set("Public API for the Solar Minecraft plugin")
-                url.set("https://github.com/Nerd10000/Solar")
-
-                licenses {
-                    license {
-                        name.set("MIT License")
-                        url.set("https://opensource.org/licenses/MIT")
-                    }
-                }
-
-                developers {
-                    developer {
-                        id.set("nerd10000")
-                    }
-                }
-
-                scm {
-                    url.set("https://github.com/Nerd10000/Solar")
-                    connection.set(
-                        "scm:git:git://github.com/Nerd10000/Solar.git"
-                    )
-                }
-            }
         }
     }
 
     repositories {
         maven {
-            name = "sonatype"
-            url = uri(
-                "https://central.sonatype.com/api/v1/publisher/upload"
-            )
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/nerd10000/solarapi")
 
-            // This URL is NOT a Maven deployment endpoint.
-            // Use the Sonatype Central Publishing Gradle plugin
-            // or its supported publishing integration instead.
+            credentials {
+                username = providers.gradleProperty("gpr.user").orNull
+                password = providers.gradleProperty("gpr.key").orNull
+            }
         }
     }
 }
